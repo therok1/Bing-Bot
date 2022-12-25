@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 #include <Windows.h>
 #include <algorithm>
 
@@ -35,8 +36,9 @@ void changeToLower(std::string& item){
     }
 }
 
-int main() {
-    std::cout << "Enter 'Lvl1', 'Lvl2' or Custom:\n";
+int main() 
+{
+	std::cout << "Enter 'Lvl1', 'Lvl2' or Custom:\n";
     std::size_t searchAmount;
     //std::cin >> searchAmount;
     std::string searchTerm = "";
@@ -69,3 +71,4 @@ int main() {
 
     return 0;
 }
+
