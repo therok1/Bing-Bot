@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <Windows.h>
+#include <algorithm>
 
 std::string genRandom(std::size_t length) 
 {
@@ -28,11 +29,14 @@ bool searchWeb()
 	return ShellExecuteExW(&sei);
 }
 
-int main() {
-	std::size_t searchAmount;
-	std::cin >> searchAmount;
+int main() 
+{
+	std::string searchTerm;
+	while (std::getline(std::cin, searchTerm))
+		if (searchTerm == "Lvl1" || searchTerm == "Lvl2")
+			break;
+	std::size_t searchAmount = searchTerm == "Lvl1" ? 10 : 30;
 	for (std::size_t i = 0; i < searchAmount; i++)
 		searchWeb();
-
 	return 0;
 }
