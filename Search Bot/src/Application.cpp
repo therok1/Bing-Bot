@@ -2,18 +2,37 @@
 #include <string>
 #include <Windows.h>
 
-void searchWeb(const std::wstring& searchQuery)
+std::string genRandom(std::size_t length) 
 {
+	const std::string alphanumeric =
+		"0123456789"
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		"abcdefghijklmnopqrstuvwxyz";
+	std::string temp;
+	temp.reserve(length);
+
+	for (std::size_t i = 0; i < length; i++)
+		temp += alphanumeric.at(rand() % (alphanumeric.size() - 1));
+	return temp;
+}
+
+bool searchWeb()
+{
+	std::string input = genRandom(32);
+	std::wstring ws(input.begin(), input.end());
+	std::wstring searchURL = L"microsoft-edge:https://www.bing.com/search?q=" + ws;
 	HRESULT result = CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
-	std::wstring searchURL = L"microsoft-edge:https://www.bing.com/search?q=" + searchQuery;
 	SHELLEXECUTEINFOW sei = { sizeof(sei) };
 	sei.lpVerb = L"open";
 	sei.lpFile = searchURL.c_str();
-	ShellExecuteExW(&sei);
+	return ShellExecuteExW(&sei);
 }
 
-int main()
-{
-	searchWeb(L"a");
+int main() {
+	std::size_t searchAmount;
+	std::cin >> searchAmount;
+	for (std::size_t i = 0; i < searchAmount; i++)
+		searchWeb();
+
 	return 0;
 }
