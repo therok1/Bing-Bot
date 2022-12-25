@@ -4,9 +4,8 @@
 
 void searchWeb(const std::wstring& searchQuery)
 {
-	auto result = CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
-	std::wstring searchURL = L"microsoft-edge:https://www.bing.com/search?q=";
-	searchURL += searchQuery;
+	HRESULT result = CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
+	std::wstring searchURL = L"microsoft-edge:https://www.bing.com/search?q=" + searchQuery;
 	SHELLEXECUTEINFOW sei = { sizeof(sei) };
 	sei.lpVerb = L"open";
 	sei.lpFile = searchURL.c_str();
