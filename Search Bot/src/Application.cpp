@@ -46,17 +46,21 @@ int main()
 	std::string searchTerm;
 	std::size_t searchAmount = 0;
 	std::size_t num = 0;
-	while (std::getline(std::cin, searchTerm)) {
+	while (std::getline(std::cin, searchTerm)) 
+	{
 		changeToLower(searchTerm);
-		if (searchTerm == "lvl1") {
+		if (searchTerm == "lvl1") 
+		{
 			searchAmount = 10; // 30 points, 3 for search
 			break;
 		}
-		else if (searchTerm == "lvl2") {
+		else if (searchTerm == "lvl2") 
+		{
 			searchAmount = 30; // 90 points, 3 for search
 			break;
 		}
-		else if (searchTerm == "custom") {
+		else if (searchTerm == "custom") 
+		{
 			std::cout << "Enter a custom amount:" << std::endl;
 			std::cin >> searchAmount;
 			break;
