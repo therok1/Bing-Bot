@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
+
 #include <Windows.h>
-#include <algorithm>
 
 std::string genRandom(std::size_t length) 
 {
