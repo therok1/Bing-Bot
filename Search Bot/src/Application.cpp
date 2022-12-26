@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+#include <time.h>
+
 #include <Windows.h>
 
 std::string genRandom(std::size_t length)
@@ -41,6 +43,8 @@ void changeToLower(std::string& item)
 
 int main()
 {
+	srand(time(0));
+
 	std::cout << "Enter 'Lvl1', 'Lvl2' or 'Custom':" << std::endl;
 	std::string searchTerm;
 	std::size_t searchAmount = 0;
